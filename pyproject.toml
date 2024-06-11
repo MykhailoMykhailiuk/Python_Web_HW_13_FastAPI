@@ -23,7 +23,11 @@ fastapi-limiter = "^0.1.6"
 ratelimiter = "^1.2.0.post0"
 cloudinary = "^1.40.0"
 libgravatar = "^1.0.4"
+sphinx = "^7.3.7"
 
+
+[tool.poetry.group.dev.dependencies]
+sphinx = "^7.3.7"
 
 [build-system]
 requires = ["poetry-core"]

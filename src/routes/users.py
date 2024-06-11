@@ -18,6 +18,14 @@ router = APIRouter(prefix="/users", tags=["users"])
             description="No more than 10 requests per minute",
             dependencies=[Depends(RateLimiter(times=10, seconds=60))])
 async def read_users_me(current_user: User = Depends(repository_auth.get_current_user)):
+    """
+    Display the user.
+
+    :param current_user: User to display.
+    :type current_user: User
+    :return: User.
+    :rtype: User
+    """
     return current_user
 
 
@@ -27,6 +35,20 @@ async def read_users_me(current_user: User = Depends(repository_auth.get_current
               dependencies=[Depends(RateLimiter(times=10, seconds=60))])
 async def update_avatar_user(file: UploadFile = File(), current_user: User = Depends(repository_auth.get_current_user),
                              db: Session = Depends(get_db)):
+    
+    """
+    Update avatar for specific user.
+
+    :param file: File to set as avatar for user.
+    :type file: UploadFile
+    :param current_user: The user to avatar's update contacts for.
+    :type current_user: User
+    :param db: The database session.
+    :type db: Session
+    :return: User with updated avatar.
+    :rtype: User
+    """
+        
     cloudinary.config(
         cloud_name=settings1.cloudinary_name,
         api_key=settings1.cloudinary_api_key,
