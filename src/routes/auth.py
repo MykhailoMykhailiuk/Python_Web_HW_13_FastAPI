@@ -54,7 +54,7 @@ async def signup(body: CreateUser,
     db.commit()
     db.refresh(new_user)
     backround_tasks.add_task(send_email, new_user.username, request.base_url)
-    return {'user': new_user.username, 'detail': 'User successfully created. Check your email for confirmation.'} 
+    return {'user': new_user, 'detail': 'User successfully created. Check your email for confirmation.'} 
 
 
 @router.post('/login')

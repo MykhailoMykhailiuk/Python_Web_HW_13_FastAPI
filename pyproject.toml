@@ -24,6 +24,7 @@ ratelimiter = "^1.2.0.post0"
 cloudinary = "^1.40.0"
 libgravatar = "^1.0.4"
 sphinx = "^7.3.7"
+pytest = "^8.2.2"
 
 
 [tool.poetry.group.dev.dependencies]
